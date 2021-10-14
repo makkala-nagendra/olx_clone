@@ -1,6 +1,6 @@
 # olx_clone
 
-A new Flutter project.
+A OLX India clone with Flutter.
 
 ## Getting Started
 
