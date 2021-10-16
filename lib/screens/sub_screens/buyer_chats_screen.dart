@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'screen_elements.dart';
 
-class AllChatsScreen extends StatelessWidget {
-  AllChatsScreen({Key? key}) : super(key: key);
+class BuyerChatsScreen extends StatelessWidget {
+  BuyerChatsScreen({Key? key}) : super(key: key);
+
   final List l = [1];
   final TextStyle listStyle = TextStyle(
     fontSize: 10,
@@ -124,9 +125,9 @@ class AllChatsScreen extends StatelessWidget {
                 ),
               )
             : InkWell(
-                onTap: () {},
-                onLongPress: () {},
-                child: Padding(
+              onTap: (){},
+              onLongPress: (){},
+              child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: ChatsList(
                     details: details,
@@ -135,8 +136,7 @@ class AllChatsScreen extends StatelessWidget {
                     latestChate: latestChate,
                     time: time,
                   ),
-                ),
-              );
+                ),);
       },
     );
   }

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'screen_elements.dart';
 
-class AllChatsScreen extends StatelessWidget {
-  AllChatsScreen({Key? key}) : super(key: key);
+class SellerChatsScreen extends StatelessWidget {
+  SellerChatsScreen({Key? key}) : super(key: key);
   final List l = [1];
   final TextStyle listStyle = TextStyle(
     fontSize: 10,

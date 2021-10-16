@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'sub_screens/all_chats_screen.dart';
+import 'sub_screens/buyer_chats_screen.dart';
+import 'sub_screens/seller_chats_screen.dart';
 
 class ChatsScreen extends StatelessWidget {
   const ChatsScreen({Key? key}) : super(key: key);
@@ -23,9 +25,10 @@ class _ChatsState extends State<Chats> with SingleTickerProviderStateMixin {
   late TabController tabController;
   List tab = [
     AllChatsScreen(),
-    const Text("data"),
-    Container(),
+    BuyerChatsScreen(),
+    SellerChatsScreen(),
   ];
+  
   @override
   void initState() {
     super.initState();
@@ -35,6 +38,7 @@ class _ChatsState extends State<Chats> with SingleTickerProviderStateMixin {
   @override
   void dispose() {
     super.dispose();
+    tabController;
   }
 
   @override
@@ -54,6 +58,7 @@ class _ChatsState extends State<Chats> with SingleTickerProviderStateMixin {
             expandedHeight: 110.0,
             forceElevated: innerBoxIsScrolled,
             bottom: TabBar(
+              padding: const EdgeInsets.all(0.0),
               controller: tabController,
               onTap: (t) {
                 setState(() {

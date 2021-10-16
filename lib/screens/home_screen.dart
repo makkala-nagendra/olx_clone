@@ -26,13 +26,13 @@ class _HomeState extends State<Home> {
   String itemDetail = "Item details in 2 lines.\n ...";
 
   bool isScrolled = true;
-  Object object = Ads;
+
   bool isLoading = false;
   int currentLength = 0;
 
   int totallDataLength = 100;
   int totall = 20;
-  final int increment = 11;
+  final int increment = 10;
 
   @override
   void initState() {
@@ -44,16 +44,12 @@ class _HomeState extends State<Home> {
     setState(() {
       isLoading = true;
     });
-    await Future.delayed(const Duration(seconds: 1));
+    await Future.delayed(const Duration(seconds: 3));
     for (var i = currentLength;
         i < currentLength + increment && i < totallDataLength;
         i++) {
-      if (i <= totallDataLength) {
-        if (data.length == (currentLength + increment) - 1) {
-          data.add(object);
-        } else {
-          data.add(i);
-        }
+      if (i < totallDataLength) {
+        data.add(i);
       } else {}
     }
     setState(() {
@@ -66,7 +62,6 @@ class _HomeState extends State<Home> {
   void dispose() {
     super.dispose();
     data;
-    object;
   }
 
   @override
@@ -175,7 +170,24 @@ class _HomeState extends State<Home> {
           }
           return false;
         },
-        child: gridItem(),
+        child: Column(
+          children: [
+            Expanded(child: gridItem()),
+            isLoading == true
+                ? const SizedBox(
+                    height: 50,
+                    child: Center(
+                      child: SizedBox(
+                        width: 100,
+                        child: LinearProgressIndicator(
+                          semanticsLabel: 'Linear progress indicator',
+                        ),
+                      ),
+                    ),
+                  )
+                : const SizedBox()
+          ],
+        ),
       ),
     );
   }
@@ -188,30 +200,15 @@ class _HomeState extends State<Home> {
           ? carSellContainer()
           : index == 1
               ? browserList()
-              : data[index - 2] == object
-                  ? nativeAdS(index)
-                  : itemsGridView(index),
+              : itemsGridView(index),
       staggeredTileBuilder: (int index) => index == 0
           ? const StaggeredTile.count(4, 2.5) //First grid eliment
           : index == 1
               ? const StaggeredTile.count(4, 1.3) //First grid eliment
-              : data[index - 2] == object
-                  ? const StaggeredTile.count(4, 3) //Native AdContainer
-                  : const StaggeredTile.count(2, 2), //Items
+
+              : const StaggeredTile.count(2, 2), //Items
       mainAxisSpacing: 4.0,
       crossAxisSpacing: 4.0,
-    );
-  }
-
-  Widget nativeAdS(index) {
-    return Container(
-      color: Colors.green,
-      child: Center(
-        child: Text(
-          "Native Ads At " + (index - 2).toString(),
-          style: const TextStyle(color: Colors.white, fontSize: 25),
-        ),
-      ),
     );
   }
 
@@ -707,5 +704,3 @@ class _HomeState extends State<Home> {
     );
   }
 }
-
-class Ads {}
