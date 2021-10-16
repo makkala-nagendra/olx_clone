@@ -1,4 +1,4 @@
-# olx_clone
+# OLX clone
 
 OLX India App clone with Flutter.
 
