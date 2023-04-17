@@ -23,4 +23,3 @@ samples, guidance on mobile development, and a full API reference.
 | <img src="./screenshot/Screenshot_20211016-084613.jpeg" width="300" alt=""> | <img src="./screenshot/Screenshot_20211016-084639.jpeg" width="300" alt=""> |
 | <img src="./screenshot/Screenshot_20211016-150800.jpeg" width="300" alt=""> | <img src="./screenshot/Screenshot_20211016-153517.jpeg" width="300" alt=""> |
 
-#### Not completed
